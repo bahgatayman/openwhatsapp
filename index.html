@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Start WhatsApp Web Chat</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 100px;
+      background-color: #f0f0f0;
+    }
+    input{
+        padding: 30px;
+        border-radius:50px;
+        border: none;
+        font-size: large;
+
+    } 
+    input:focus{
+        outline:1px solid greenyellow;
+        border: 1px gold;
+        background-color: rgba(128, 128, 128, 0.405);
+        color: white;
+        font-size: large;
+    }
+    button {
+      background-color: greenyellow;
+      padding: 20px;
+      width: 200px;
+      font-size: 18px;
+      margin: 10px;
+      border-radius: 60px;
+      cursor: pointer;
+      border: none;
+
+    }
+    button:hover{
+        background-color: chartreuse;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Enter a phone number to start WhatsApp Web chat</h2>
+  <input type="text" id="phone" placeholder="e.g. 201234567890" />
+  <br />
+  <button onclick="openWhatsAppWeb()">GO</button>
+
+  <script>
+    function openWhatsAppWeb() {
+      let phone = document.getElementById("phone").value.trim();
+
+      // Make sure it's not empty and contains digits only
+      if (phone === "" || !/^\d+$/.test(phone)) {
+        alert("Please enter a valid phone number");
+        return;
+      }
+
+      // Open WhatsApp Web chat
+      let url = "https://web.whatsapp.com/send?phone=" + phone;
+      window.open(url, "_blank");
+    }
+  </script>
+
+</body>
+</html>
